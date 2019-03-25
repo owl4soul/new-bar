@@ -3,8 +3,6 @@ package products;
 import java.util.Map;
 
 public class Ingredient extends Product {
-    int id;
-    public int cost;
     public Map<String, Ingredient> ingredientTypes;
 
 
@@ -54,12 +52,13 @@ public class Ingredient extends Product {
         }
 
         public Ingredient build() {
-            if (ingredient.name == null && ingredient.id >= 0) {
-                return this.ingredient;
-            } else {
-                System.out.println("Создание объекта невозможно. Проверьте параметры.");
-            }
-            return null;
+            return this.ingredient;
+//            if (ingredient.name == null && ingredient.id >= 0) {
+//                return this.ingredient;
+//            } else {
+//                System.out.println("Создание объекта невозможно. Проверьте параметры.");
+//            }
+//            return null;
         }
     }
 
