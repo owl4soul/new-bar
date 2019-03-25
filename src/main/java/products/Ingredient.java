@@ -1,5 +1,11 @@
 package products;
 
+import instruments.Parser;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.sql.Array;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,26 +21,46 @@ public class Ingredient extends Product {
     public static final Ingredient ICE = new Builder().setName("ice").setId(6).setCost(2).build();
 
 
-
     public static Map<String, Ingredient> ingredientTypes = new HashMap<String, Ingredient>();
-    static {{
-        List<Ingredient> list = Arrays.asList(SHOT, MILK, WATER, SUGAR, CINNAMON, ICE);
-        for (Ingredient i : list) {
-            ingredientTypes.put(i.getName(), i);
+
+    static {
+        {
+            List<Ingredient> list = Arrays.asList(SHOT, MILK, WATER, SUGAR, CINNAMON, ICE);
+            for (Ingredient i : list) {
+                ingredientTypes.put(i.getName(), i);
+            }
         }
-    }}
+    }
 
     public static int nextFreeId;
-    static {{
-        nextFreeId = ingredientTypes.size()+1;
-    }}
 
+    static {
+        {
+            nextFreeId = ingredientTypes.size() + 1;
+        }
+    }
 
 
     public Product create() {
-       Product i = new Builder().setName("U did it again!!").setId(nextFreeId).build();
-       ((Ingredient) i).putToIngredientTypes();
-       return i;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Для создания нового ингредиента введите одной строкой его параметры:" +
+                "\"name cost\"");
+        try {
+            String input = reader.readLine();
+            String [] subs = Parser.parseSubstrings(input);
+            if (subs.length > 2) {
+                throw new IOException();
+            }
+            String nameInput = subs[0];
+            int costInput = Integer.parseInt(subs[1]);
+            Product ingredient = new Builder().setName(nameInput).setId(nextFreeId).setCost(costInput).build();
+            ((Ingredient) ingredient).putToIngredientTypes();
+            return ingredient;
+        } catch (IOException e) {
+            System.out.println("Ошибка ввода.");
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public Ingredient() {
@@ -44,7 +70,6 @@ public class Ingredient extends Product {
     public void putToIngredientTypes() {
         ingredientTypes.put(this.getName(), this);
     }
-
 
 
     public static class Builder {

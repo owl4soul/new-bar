@@ -1,9 +1,9 @@
 package products;
 
 public abstract class Product {
-    public String name;
-    public int id;
-    public int cost;
+    protected String name;
+    protected int id;
+    protected int cost;
 
     public abstract Product create();
 
@@ -12,7 +12,7 @@ public abstract class Product {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
@@ -20,7 +20,7 @@ public abstract class Product {
         return id;
     }
 
-    public void setId(int id) {
+    protected void setId(int id) {
         this.id = id;
     }
 
@@ -28,7 +28,7 @@ public abstract class Product {
         return cost;
     }
 
-    public void setCost(int cost) {
+    protected void setCost(int cost) {
         this.cost = cost;
     }
 }
