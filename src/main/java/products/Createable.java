@@ -22,7 +22,7 @@ public interface Createable {
             String[] substrings = Parser.parseSubstrings(input);
 
             if (substrings.length > 2) {
-                createRecipe()
+//                createRecipe()
                 createComplex();
             } else {
                 createPrimitive(substrings);
@@ -36,19 +36,20 @@ public interface Createable {
     default Recipe createRecipe(String[] substrings) {
         Map<String, Integer> subs = Parser.getMapStringInteger(substrings);
         Map<Product, Integer> recipe = new HashMap<>();
-        recipe.put()
+//        recipe.put()
+        return null;
     }
 
     default Product createPrimitive(String[] substrings) {
-
+        return null;
 
     }
 
     default Product createComplex() {
-
+        return null;
     }
 
     default Product createElement(String name) {
-
+        return null;
     }
 }
