@@ -37,8 +37,10 @@ public class MainClass   {
         };
         Compositable.compositor(drinkk, Product.map);
         System.out.println(Product.map.size());
-        Agregator.agregateMap(Product.class);
 
+        Product.getGRAND_MAP();
+
+        Product a = Createable.getProduction(new Ingredient());
         Product.getGRAND_MAP();
 
 

@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public abstract class Product implements Compositable, Createable {
-        static Map<String, Map<String, Product>> GRAND_MAP = new HashMap<String, Map<String, Product>>(); //TODO убедиться, что final не создаст проблем
+        static Map<String, Map<String, Product>> GRAND_MAP = new HashMap<>(); //TODO убедиться, что final не создаст проблем
 
     public static void getGRAND_MAP() {
         GRAND_MAP = Agregator.agregateMap(Product.class);

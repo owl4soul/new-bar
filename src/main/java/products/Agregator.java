@@ -10,28 +10,31 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Agregator {
-    public static Map<String, Map<String, Product>> agregateMap(Class<?> cls) {
-        Map<String, Map<String, Product>> GRAND_MAP = new HashMap<String, Map<String, Product>>(); //TODO убедиться, что final не создаст проблем
-        Set<Class<?>> set = getChildrenSubSet(cls);
-        for (Class<?> c : set) {
+
+    public static Map<String, Map<String, Product>> agregateMap(Class<?> clazz) {
+        Map<String, Map<String, Product>> consolidatedMap = new HashMap<>();
+        String fieldName = "map"; //this name should be changed if it need to get some other map
+        Set<Class<?>> set = getChildrenSubSet(clazz);
+        for (Class<?> cls : set) {
             try {
                 try {
-                    Field mas = c.getDeclaredField("map");
-                    Map<String, Product> mp;
-                    mp = (Map<String, Product>) mas.get("map");
-                    GRAND_MAP.put(c.getSimpleName(), mp);
+                    Field field = cls.getDeclaredField(fieldName);
+                    Map<String, Product> receivedMap = (Map<String, Product>) field.get(fieldName);
+                    consolidatedMap.put(cls.getSimpleName(), receivedMap);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                System.out.println(e.toString());
+                System.out.println("Класс " + cls.getSimpleName() +
+                        " не содержит поля " + "\"" + fieldName + "\"");
             }
         }
-        return GRAND_MAP;
+        return consolidatedMap;
     }
 
     public static <T> Set<Class<? extends T>> getChildrenSubSet(Class<? extends T> cls) {
-
+        String packageName = "products"; //this name should be changed if it need to filter search through other package
         Set<Class<? extends T>> set = new Reflections(
                 ClasspathHelper.forClass(cls))
                 .getSubTypesOf(cls)
