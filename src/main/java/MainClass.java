@@ -1,7 +1,6 @@
-import products.Creator;
-import products.Drink;
-import products.Ingredient;
-import products.Product;
+import products.*;
+
+import java.util.Map;
 
 public class MainClass   {
     public static void main(String[] args) {
@@ -20,6 +19,25 @@ public class MainClass   {
         System.out.println(u.getName() + " " + u.getId() + " " + u.getCost());
         System.out.println(Ingredient.ingredientTypes.size());
         System.out.println(Ingredient.ingredientTypes.get(u.getName()).getName());
+
+//        Compositable comp = new Compositable() {
+//        };
+//        comp.addToMap((Ingredient)u, Product.map);
+//        System.out.println((Ingredient)Product.map.get(u.getName()));
+//
+//        Ingredient ada = new Ingredient();
+//        ada.addToMap(u);
+//
+//        ((Ingredient) u).addToMap(u);
+
+        System.out.println("current test: " + Ingredient.map.get(u.getName()));
+
+        Product drinkk = Createable.getProduction(new Drink());
+        Compositable comp = new Compositable() {
+        };
+        Compositable.compositor(drinkk, Product.map);
+        System.out.println(Product.map.size());
+
 
     }
 }

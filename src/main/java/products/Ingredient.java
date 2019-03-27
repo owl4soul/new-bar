@@ -12,7 +12,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Ingredient extends Product {
+public class Ingredient extends Product  {
+
+    public static Map<String, Product> map = new HashMap<>();
+
+    public void addToMap() {
+
+        Compositable.compositor(this, map);
+    }
+
+
+
     public static final Ingredient SHOT = new Builder().setName("shot").setId(1).setCost(20).build();
     public static final Ingredient MILK = new Builder().setName("milk").setId(2).setCost(30).build();
     public static final Ingredient WATER = new Builder().setName("water").setId(3).setCost(1).build();
@@ -95,6 +105,8 @@ public class Ingredient extends Product {
         }
 
         public Ingredient build() {
+//            this.ingredient.addToMap();
+            Compositable.compositor(this.ingredient, map);
             return this.ingredient;
 
 //            if (!(ingredient.name == null) && !(ingredient.id >= 0)) {
