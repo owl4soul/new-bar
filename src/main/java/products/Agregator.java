@@ -30,13 +30,14 @@ public class Agregator {
         return GRAND_MAP;
     }
 
-    public static Set<Class<?>> getChildrenSubSet(Class<?> cls) {
-        Set<Class<? extends cls>> set = (Set<Class<? extends cls>>) new Reflections(
+    public static <T> Set<Class<? extends T>> getChildrenSubSet(Class<? extends T> cls) {
+
+        Set<Class<? extends T>> set = new Reflections(
                 ClasspathHelper.forClass(cls))
                 .getSubTypesOf(cls)
                 .stream()
                 .filter(c -> c.getPackage().getName().equals("products"))
                 .collect(Collectors.toSet());
-        return (Set<Class<?>>) set;
+        return set;
     }
 }
