@@ -8,7 +8,7 @@ public class MainClass   {
 //        System.out.println(p.getName());
 //        p = new Ingredient.Builder().setName("sdscs").build();
 //        System.out.println(p.getName());
-        System.out.println(Ingredient.ingredientTypes.size());
+        System.out.println(Ingredient.map.size());
 
         Product y = Creator.getProduct(new Drink());
         System.out.println(y.getName());
@@ -17,8 +17,8 @@ public class MainClass   {
         System.out.println(u.getName());
 
         System.out.println(u.getName() + " " + u.getId() + " " + u.getCost());
-        System.out.println(Ingredient.ingredientTypes.size());
-        System.out.println(Ingredient.ingredientTypes.get(u.getName()).getName());
+        System.out.println(Ingredient.map.size());
+        System.out.println(Ingredient.map.get(u.getName()).getName());
 
 //        Compositable comp = new Compositable() {
 //        };

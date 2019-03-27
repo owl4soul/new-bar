@@ -30,25 +30,8 @@ public class Ingredient extends Product  {
     public static final Ingredient CINNAMON = new Builder().setName("cinnamon").setId(5).setCost(2).build();
     public static final Ingredient ICE = new Builder().setName("ice").setId(6).setCost(2).build();
 
+    public static int nextFreeId = map.size() + 1;
 
-    public static Map<String, Ingredient> ingredientTypes = new HashMap<String, Ingredient>();
-
-    static {
-        {
-            List<Ingredient> list = Arrays.asList(SHOT, MILK, WATER, SUGAR, CINNAMON, ICE);
-            for (Ingredient i : list) {
-                ingredientTypes.put(i.getName(), i);
-            }
-        }
-    }
-
-    public static int nextFreeId;
-
-    static {
-        {
-            nextFreeId = ingredientTypes.size() + 1;
-        }
-    }
 
 
     public Product create() {
@@ -64,7 +47,7 @@ public class Ingredient extends Product  {
             String nameInput = subs[0];
             int costInput = Integer.parseInt(subs[1]);
             Product ingredient = new Builder().setName(nameInput).setId(nextFreeId).setCost(costInput).build();
-            ((Ingredient) ingredient).putToIngredientTypes();
+            ((Ingredient) ingredient).addToMap();
             return ingredient;
         } catch (IOException e) {
             System.out.println("Ошибка ввода.");
@@ -77,9 +60,9 @@ public class Ingredient extends Product  {
         //private constructor
     }
 
-    public void putToIngredientTypes() {
-        ingredientTypes.put(this.getName(), this);
-    }
+//    public void putToIngredientTypes() {
+//        ingredientTypes.put(this.getName(), this);
+//    }
 
 
     public static class Builder {
