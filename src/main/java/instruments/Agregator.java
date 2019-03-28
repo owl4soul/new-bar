@@ -44,4 +44,14 @@ public class Agregator {
                 .collect(Collectors.toSet());
         return set;
     }
+
+    public static Set<String> getSetKeys(Map<String, Product> map) {
+        Set<String> setKeys = map.keySet();
+        return setKeys;
+    }
+
+//    public static <T> Set<Class<? extends T>> getSetKeys(Map<Class<? extends T>, Class<? extends T>> map) {
+//        Set<Class<? extends T>> setKeys = map.keySet();
+//        return setKeys;
+//    }
 }

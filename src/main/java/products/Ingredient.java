@@ -40,6 +40,7 @@ public class Ingredient extends Product  {
     }
 
 
+
     public Product create() throws IOException {
         //TODO убрать это отсюда
         System.out.println("enter: ");

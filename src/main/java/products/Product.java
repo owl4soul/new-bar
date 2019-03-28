@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Product implements Compositable, Createable {
-       public static Map<String, Map<String, Product>> GRAND_MAP = new HashMap<>(); //TODO убедиться, что final не создаст проблем
+       public static Map<String, Map<String, Product>> GRAND_MAP = new HashMap<>();
 
     public static Map<String, Map<String, Product>> getGRAND_MAP() {
         GRAND_MAP = Agregator.agregateMap(Product.class);
