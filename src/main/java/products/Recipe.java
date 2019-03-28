@@ -33,10 +33,6 @@ public class Recipe extends Product{
     }
 
 
-    public Recipe(Map<Product, Integer> recipe) {
-        this.recipe = recipe;
-    }
-
     public void addToMap(Recipe recipe) {
         map.put(recipe.getName(), recipe);
     }
@@ -70,11 +66,6 @@ public class Recipe extends Product{
     }
 
 
-
-    @Override
-    public Product create() throws IOException {
-        return null;
-    }
 
     public class Builder {
         private Recipe rec;

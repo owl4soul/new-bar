@@ -18,18 +18,8 @@ public abstract class Product implements Compositable, Createable {
 
     public static Map<String, Map<String, Product>> getGRAND_MAP() {
         GRAND_MAP = Agregator.agregateMap(Product.class);
-        System.out.println(GRAND_MAP.size());
-        System.out.println(GRAND_MAP.get("Ingredient"));
         return GRAND_MAP;
     }
-
-    public static void setGrandMap() {
-        Map<String, Map<String, Product>> grand = getGRAND_MAP();
-        GRAND_MAP = grand;
-    }
-    public static Map<String, Product> map = new HashMap<>();
-
-    public abstract Product create() throws IOException;
 
 
     public String getName() {

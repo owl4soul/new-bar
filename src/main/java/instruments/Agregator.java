@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Agregator {
-
+    //COLLECT ALL PRODUCT-SUBCLASSES' MAPS TO ONE CONSOLIDATED DATABASE IN GRAND_MAP
     public static Map<String, Map<String, Product>> agregateMap(Class<?> clazz) {
         Map<String, Map<String, Product>> consolidatedMap = new HashMap<>();
         String fieldName = "map"; //this name should be changed if it need to get some other map

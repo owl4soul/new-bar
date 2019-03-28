@@ -2,13 +2,12 @@ package products;
 
 import instruments.Agregator;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class Stock extends Product{
-    public static Map<String, Integer> map = new HashMap<>(); //Product-count
+    public static Map<String, Integer> map = new HashMap<>(); //Product_name - count
 
     public static void fillStockMap() {
         Set<String> set = Agregator.getSetKeys(Ingredient.map);
@@ -29,8 +28,4 @@ public class Stock extends Product{
     }
 
 
-    @Override
-    public Product create() throws IOException {
-        return null;
-    }
 }
