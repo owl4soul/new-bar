@@ -45,6 +45,7 @@ public class MainClass   {
         Product a = Createable.getProduction(new Ingredient());
         Product.getGRAND_MAP();
 
+        Recipe recipe = (Recipe) Createable.CREATE_SOMETHING("products.Recipe shot 3 milk 4 sugar 5");
 
     }
 }

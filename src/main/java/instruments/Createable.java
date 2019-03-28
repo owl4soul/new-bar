@@ -63,11 +63,9 @@ public interface Createable {
 
 
     static Product CREATE_SOMETHING(String nameOfClassAndParameters) {
-        Ingredient i = new Ingredient();
-        String nameOfClass = i.getClass().getName();
         //Get first word with name of class
         Product product = null;
-//        String nameOfClass = nameOfClassAndParameters.substring(0, nameOfClassAndParameters.indexOf(" "));
+        String nameOfClass = nameOfClassAndParameters.substring(0, nameOfClassAndParameters.indexOf(" "));
         String andParameters = nameOfClassAndParameters.replaceFirst(nameOfClass.concat(" "), "");
         System.out.println(andParameters); //TODO test
 
