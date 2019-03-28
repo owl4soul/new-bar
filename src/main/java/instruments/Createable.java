@@ -64,7 +64,7 @@ public interface Createable {
 
     static Product CREATE_SOMETHING(String nameOfClassAndParameters) {
         //Get first word with name of class
-        Product product = null;
+        Product product;
         String nameOfClass = nameOfClassAndParameters.substring(0, nameOfClassAndParameters.indexOf(" "));
         String andParameters = nameOfClassAndParameters.replaceFirst(nameOfClass.concat(" "), "");
         System.out.println(andParameters); //TODO test
@@ -88,6 +88,6 @@ public interface Createable {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
-        return product;
+        return null;
     }
 }

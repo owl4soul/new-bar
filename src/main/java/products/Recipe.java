@@ -38,16 +38,17 @@ public class Recipe extends Product{
     }
 
     public void addToMap(Recipe recipe) {
-        System.out.println("Имя рецепта: ");
-        String nameRecipe = InputReader.read();
-        map.put(nameRecipe, recipe);
+        map.put(recipe.getName(), recipe);
     }
 
     public Recipe() {
     }
 
     public Recipe createFromCommand(String input) {
+        System.out.println("Задать имя рецепта: ");
+        String nameRecipe = InputReader.read();
         Recipe rec = new Recipe();
+        rec.setName(nameRecipe);
         String[] substrings = Parser.parseSubstrings(input);
 
         for (int i = 0; i < substrings.length - 1; i = i + 2) {
@@ -58,6 +59,7 @@ public class Recipe extends Product{
             rec = new Builder(rec).setName(ingredient, ingredientCount).build();
         }
         addToMap(rec);
+
         return rec;
     }
 

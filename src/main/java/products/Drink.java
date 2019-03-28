@@ -8,6 +8,16 @@ public class Drink extends Product{
 
     }
 
+    public static void showDrink(Drink drink) {
+        String nameDrink = drink.getName();
+        Recipe recipe = drink.drinkRecipe;
+        String nameRecipe = recipe.getName();
+        System.out.println("Состав напитка " + nameDrink);
+        System.out.println("Название рецепта, по которому приготовлен напиток: " + nameRecipe);
+        System.out.println("Состав: ");
+        Recipe.showThisRecipe(recipe);
+    }
+
     public Drink(String name, int id, int cost, Recipe drinkRecipe) {
         this.name = name;
         this.id = id;
@@ -16,9 +26,9 @@ public class Drink extends Product{
     }
 
     public Product createFromCommand(String input) {
-        Recipe recipe = Recipe.map.get(input);
         String[] arguments = input.split(" ");
-        String name = arguments[0];
+        Recipe recipe = Recipe.map.get(arguments[0]);
+        String name = recipe.getName();
         int id = freeId;
         int cost = Integer.parseInt(arguments[1]);
         Product drink = new Drink(name, id, cost, recipe);
@@ -26,9 +36,6 @@ public class Drink extends Product{
         return drink;
     }
 
-    public static void showDrink(Drink drink) {
-//        drink.drinkRecipe;
-    }
 
 
     public Product create() {
