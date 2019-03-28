@@ -73,7 +73,7 @@ public interface Createable {
         try {
             Class clazz = Class.forName(nameOfClass);
             Object qwer = clazz.newInstance();
-            Map<String, Product> map = Product.GRAND_MAP.get(clazz.getSimpleName());
+//            Map<String, Product> map = Product.GRAND_MAP.get(clazz.getSimpleName());
             Method method = clazz.getDeclaredMethod("createFromCommand", String.class);
             product = (Product) method.invoke(qwer, andParameters);
             return product;

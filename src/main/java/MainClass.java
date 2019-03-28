@@ -10,17 +10,18 @@ public class MainClass   {
 //        System.out.println(p.getName());
 //        p = new Ingredient.Builder().setName("sdscs").build();
 //        System.out.println(p.getName());
-        System.out.println(Ingredient.map.size());
 
-        Product y = Createable.getProduction(new Drink());
-        System.out.println(y.getName());
-
-        Product u = Createable.getProduction(new Ingredient());
-        System.out.println(u.getName());
-
-        System.out.println(u.getName() + " " + u.getId() + " " + u.getCost());
-        System.out.println(Ingredient.map.size());
-        System.out.println(Ingredient.map.get(u.getName()).getName());
+//        System.out.println(Ingredient.map.size());
+//
+//        Product y = Createable.getProduction(new Drink());
+//        System.out.println(y.getName());
+//
+//        Product u = Createable.getProduction(new Ingredient());
+//        System.out.println(u.getName());
+//
+//        System.out.println(u.getName() + " " + u.getId() + " " + u.getCost());
+//        System.out.println(Ingredient.map.size());
+//        System.out.println(Ingredient.map.get(u.getName()).getName());
 
 //        Compositable comp = new Compositable() {
 //        };
@@ -32,20 +33,20 @@ public class MainClass   {
 //
 //        ((Ingredient) u).addToMap(u);
 
-        System.out.println("current test: " + Ingredient.map.get(u.getName()));
-
-        Product drinkk = Createable.getProduction(new Drink());
-        Compositable comp = new Compositable() {
-        };
-        Compositable.compositor(drinkk, Product.map);
-        System.out.println(Product.map.size());
-
-        Product.getGRAND_MAP();
-
-        Product a = Createable.getProduction(new Ingredient());
-        Product.getGRAND_MAP();
+//        System.out.println("current test: " + Ingredient.map.get(u.getName()));
+//
+//        Product drinkk = Createable.getProduction(new Drink());
+//        Compositable comp = new Compositable() {
+//        };
+//        Compositable.compositor(drinkk, Product.map);
+//        System.out.println(Product.map.size());
+//
+//        Product.getGRAND_MAP();
+//
+//        Product a = Createable.getProduction(new Ingredient());
+//        Product.getGRAND_MAP();
 
         Recipe recipe = (Recipe) Createable.CREATE_SOMETHING("products.Recipe shot 3 milk 4 sugar 5");
-
+        System.out.println(Recipe.map.get("gto"));
     }
 }

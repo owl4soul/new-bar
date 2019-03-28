@@ -1,6 +1,7 @@
 package products;
 
 import instruments.Compositable;
+import instruments.InputReader;
 import instruments.Parser;
 
 import java.io.IOException;
@@ -10,12 +11,18 @@ import java.util.Map;
 public class Recipe extends Product{
     public Map<Product, Integer> recipe = new HashMap<>(); //Ingredient-Count of it
 
-    public static Map<String, Recipe> menu = new HashMap<>(); //All recipes we have
+    public static Map<String, Recipe> map = new HashMap<>(); //All recipes we have
 
 
 
     public Recipe(Map<Product, Integer> recipe) {
         this.recipe = recipe;
+    }
+
+    public void addToMap(Recipe recipe) {
+        System.out.println("Имя рецепта: ");
+        String nameRecipe = InputReader.read();
+        map.put(nameRecipe, recipe);
     }
 
     public Recipe() {
@@ -32,6 +39,7 @@ public class Recipe extends Product{
 
             rec = new Builder(rec).setName(ingredient, ingredientCount).build();
         }
+        addToMap(rec);
         return rec;
     }
 
