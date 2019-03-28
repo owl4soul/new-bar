@@ -9,7 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Product implements Compositable, Createable {
-       public static Map<String, Map<String, Product>> GRAND_MAP = new HashMap<>();
+    protected String name;
+    protected int id;
+    protected int cost;
+
+    public static Map<String, Map<String, Product>> GRAND_MAP = new HashMap<>();
+
 
     public static Map<String, Map<String, Product>> getGRAND_MAP() {
         GRAND_MAP = Agregator.agregateMap(Product.class);
@@ -22,11 +27,7 @@ public abstract class Product implements Compositable, Createable {
         Map<String, Map<String, Product>> grand = getGRAND_MAP();
         GRAND_MAP = grand;
     }
-
     public static Map<String, Product> map = new HashMap<>();
-    protected String name;
-    protected int id;
-    protected int cost;
 
     public abstract Product create() throws IOException;
 

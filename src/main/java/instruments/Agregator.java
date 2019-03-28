@@ -50,8 +50,4 @@ public class Agregator {
         return setKeys;
     }
 
-//    public static <T> Set<Class<? extends T>> getSetKeys(Map<Class<? extends T>, Class<? extends T>> map) {
-//        Set<Class<? extends T>> setKeys = map.keySet();
-//        return setKeys;
-//    }
 }

@@ -16,6 +16,17 @@ public class Stock extends Product{
         }
     }
 
+    public static void addToStockMap(Product product) {
+        map.put(product.getName(), 1000); //TODO позже сделать возможность установки кол-ва на складе
+    }
+
+    public void showStock() {
+        System.out.println("Результаты инвентаризации складских запасов: ");
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue() + " единиц");
+        }
+    }
+
 
     @Override
     public Product create() throws IOException {

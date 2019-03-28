@@ -13,6 +13,24 @@ public class Recipe extends Product{
 
     public static Map<String, Recipe> map = new HashMap<>(); //All recipes we have
 
+    public static void showAllRecipes() {
+        for (Map.Entry<String, Recipe> entry : map.entrySet()) {
+            Recipe rec = entry.getValue();
+            System.out.println("Состав рецепта " + entry.getKey() + ": ");
+            showThisRecipe(rec);
+
+        }
+    }
+
+    public static void showThisRecipe(Recipe rec) {
+        Map<Product, Integer> recipe = rec.recipe;
+        for (Map.Entry rentry : recipe.entrySet()) {
+            Product product = (Product) rentry.getKey();
+            String nameProduct = product.getName();
+            int countProduct = (Integer) rentry.getValue();
+            System.out.println(nameProduct + " = " + countProduct + " единиц");
+        }
+    }
 
 
     public Recipe(Map<Product, Integer> recipe) {

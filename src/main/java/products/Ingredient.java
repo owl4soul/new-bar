@@ -36,6 +36,7 @@ public class Ingredient extends Product  {
         int id = nextFreeId;
         int cost = Integer.parseInt(arguments[1]);
         Product ingredient = new Builder().setName(name).setId(id).setCost(cost).build();
+        Stock.addToStockMap(ingredient); //add new just created ingredient to stock
         return ingredient;
     }
 
