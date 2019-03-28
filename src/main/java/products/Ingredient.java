@@ -1,15 +1,13 @@
 package products;
 
+import instruments.Compositable;
+import instruments.Createable;
 import instruments.Parser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.sql.Array;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Ingredient extends Product  {
@@ -32,28 +30,42 @@ public class Ingredient extends Product  {
 
     public static int nextFreeId = map.size() + 1;
 
+    public Product createFromCommand(String input) {
+        String[] arguments = input.split(" ");
+        String name = arguments[0];
+        int id = nextFreeId;
+        int cost = Integer.parseInt(arguments[1]);
+        Product ingredient = new Builder().setName(name).setId(id).setCost(cost).build();
+        return ingredient;
+    }
 
 
-    public Product create() {
+    public Product create() throws IOException {
+        System.out.println("enter: ");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Для создания нового ингредиента введите одной строкой его параметры:" +
-                "\"name cost\"");
-        try {
-            String input = reader.readLine();
-            String [] subs = Parser.parseSubstrings(input);
-            if (subs.length > 2) {
-                throw new IOException();
-            }
-            String nameInput = subs[0];
-            int costInput = Integer.parseInt(subs[1]);
-            Product ingredient = new Builder().setName(nameInput).setId(nextFreeId).setCost(costInput).build();
-            ((Ingredient) ingredient).addToMap();
-            return ingredient;
-        } catch (IOException e) {
-            System.out.println("Ошибка ввода.");
-            e.printStackTrace();
-            return null;
-        }
+        String input = reader.readLine();
+        Product product = Createable.CREATE_SOMETHING(input);
+
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//        System.out.println("Для создания нового ингредиента введите одной строкой его параметры:" +
+//                "\"name cost\"");
+//        try {
+//            String input = reader.readLine();
+//            String [] subs = Parser.parseSubstrings(input);
+//            if (subs.length > 2) {
+//                throw new IOException();
+//            }
+//            String nameInput = subs[0];
+//            int costInput = Integer.parseInt(subs[1]);
+//            Product ingredient = new Builder().setName(nameInput).setId(nextFreeId).setCost(costInput).build();
+//            ((Ingredient) ingredient).addToMap();
+//            return ingredient;
+//        } catch (IOException e) {
+//            System.out.println("Ошибка ввода.");
+//            e.printStackTrace();
+//            return null;
+//        }
+        return product;
     }
 
     public Ingredient() {

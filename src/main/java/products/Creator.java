@@ -1,10 +1,10 @@
-package products;
-
-public class Creator {
-
-    public static Product getProduct(Product type) {
-        return type.create();
-    }
-
-
-}
+//package products;
+//
+//public class Creator {
+//
+//    public static Product getProduct(Product type) {
+//        return type.create();
+//    }
+//
+//
+//}

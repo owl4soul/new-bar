@@ -1,7 +1,8 @@
-package products;
+package instruments;
 
 import org.reflections.Reflections;
 import org.reflections.util.ClasspathHelper;
+import products.Product;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
