@@ -10,7 +10,7 @@ public class MainClass {
         Product rr = Createable.CREATE_SOMETHING("products.Recipe shot 4 milk 5 blood 4");
 
         Product d = Createable.CREATE_SOMETHING("products.Drink MANDRA 890");
-        Product dd = Createable.CREATE_SOMETHING("products.Drink VAMP 890");
+//        Product dd = Createable.CREATE_SOMETHING("products.Drink VAMP 890");
 
         System.out.println(Product.GRAND_MAP);
 

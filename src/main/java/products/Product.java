@@ -15,6 +15,16 @@ public abstract class Product implements Compositable, Createable {
 
     public static Map<String, Map<String, Product>> GRAND_MAP = new HashMap<>();
 
+    public Product() {
+        //constructor
+    }
+
+    public Product(Ingredient.Builder builder) {
+        this.name = builder.name;
+        this.id = builder.id;
+        this.cost = builder.cost;
+    }
+
 
     public static Map<String, Map<String, Product>> getGRAND_MAP() {
         GRAND_MAP = Agregator.agregateMap(Product.class);
