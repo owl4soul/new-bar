@@ -79,8 +79,8 @@ public class Recipe extends Product{
         }
 
         public Recipe.Builder setName(Product ingredient, int count) {
-            Map<Product, Integer> tmpp = new HashMap<>(fillRecipe(ingredient, count));
-            this.rec.recipe.putAll(tmpp);
+            Map<Product, Integer> tmp = new HashMap<>(fillRecipe(ingredient, count));
+            this.rec.recipe.putAll(tmp);
             return this;
         }
 

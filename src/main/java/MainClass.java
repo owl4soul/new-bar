@@ -5,8 +5,12 @@ import products.*;
 public class MainClass {
     public static void main(String[] args) {
         Product i = Createable.CREATE_SOMETHING("products.Ingredient mandragora 666");
+        Product ii = Createable.CREATE_SOMETHING("products.Ingredient blood 888");
         Product r = Createable.CREATE_SOMETHING("products.Recipe shot 1 milk 8 mandragora 6");
+        Product rr = Createable.CREATE_SOMETHING("products.Recipe shot 4 milk 5 blood 4");
+
         Product d = Createable.CREATE_SOMETHING("products.Drink MANDRA 890");
+        Product dd = Createable.CREATE_SOMETHING("products.Drink VAMP 890");
 
         System.out.println(Product.GRAND_MAP);
 

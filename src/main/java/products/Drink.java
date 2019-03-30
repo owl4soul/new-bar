@@ -9,7 +9,12 @@ public class Drink extends Product {
     public Recipe drinkRecipe;
 
     public static Map<String, Product> map = new HashMap<>();
-    static int freeId = Recipe.map.size() + 1 + 100;
+    static int nextFreeId;
+
+    private static Integer getNextFreeId() {
+            nextFreeId = map.size()+1 + 100;
+            return nextFreeId;
+    }
 
     public Drink() {
         //constructor
@@ -27,7 +32,7 @@ public class Drink extends Product {
         String[] arguments = input.split(" ");
         Recipe recipe = Recipe.map.get(arguments[0]);
         String name = recipe.getName();
-        int id = freeId;
+        int id = getNextFreeId();
         int cost = Integer.parseInt(arguments[1]);
         Product drink = new Drink(name, id, cost, recipe);
         Compositable.compositor(drink, map); //add new just created drink to Drink.map
